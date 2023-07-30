@@ -1,6 +1,10 @@
-<div class="card">
-    <div class="card__item" *ngFor="let fil of arrayFilters">
-        <p>{{fil}}</p>
-        <button (click)="favoritoRm(fil)"><img [src]="imgClose"></button>
+<div class="card" *ngIf="arrayFilters.length > 0">
+    <div class="card__box">
+        <div class="card__item" *ngFor="let fil of arrayFilters">
+            <p>{{fil}}</p>
+            <button (click)="removeItem(fil)"><img [src]="imgClose"></button>
+        </div>
     </div>
+
+    <label class="card__clear" (click)="clearList()" *ngIf="arrayFilters.length > 0">Clear</label>
 </div>

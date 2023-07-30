@@ -16,7 +16,7 @@ export class CardFiltersComponent {
 
   imgClose = 'assets/images/icon-remove.svg';
 
-  favoritoRm(filter: string){
+  removeItem(filter: string){
     let arrayFav: any = [];
     this.arrayFilters.forEach(e => {
       if(e !== filter){
@@ -24,6 +24,11 @@ export class CardFiltersComponent {
       }
     })
     this.arrayFilters = arrayFav;
+    this.newArray.emit(this.arrayFilters);
+  }
+
+  clearList(){
+    this.arrayFilters = [];
     this.newArray.emit(this.arrayFilters);
   }
 }
