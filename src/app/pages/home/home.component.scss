@@ -1,8 +1,16 @@
 .content {
+    &__box-filters{
+        display: flex;
+        justify-content: center;
+    }
+
     &__box-cards {
         display: flex;
         justify-content: center;
-        padding-top: 8vh;
+        align-items: center;
+        padding: 9vh 0;
+        flex-direction: column;
+        gap: 3vh;
 
         &__card {
             background-color: white;
@@ -12,7 +20,7 @@
             box-shadow: 2px 7px 17px rgba(0, 0, 0, 0.15);
             padding: 4vh;
             display: grid;
-            grid-template-columns: 13% 43% 44%;
+            grid-template-columns: 13% 40% 47%;
             transition: all 0.1s;
             cursor: auto;
 
