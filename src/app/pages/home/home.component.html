@@ -1,6 +1,6 @@
 <div class="content">
     <div class="content__box-filters">
-        <app-card-filters></app-card-filters>
+        <app-card-filters [arrayFilters]="arrayFilter" (newArray)="getarrayFilters($event)"></app-card-filters>
     </div>
 
     <div class="content__box-cards">
@@ -30,10 +30,10 @@
             </div>
 
             <div class="content__box-cards__card__buttons">
-                <button>{{per.role}}</button>
-                <button>{{per.level}}</button>
-                <button *ngFor="let opt of per.languages">{{opt}}</button>
-                <button *ngFor="let res of per.tools">{{res}}</button>
+                <button (click)="addFilter(per.role)">{{per.role}}</button>
+                <button (click)="addFilter(per.level)">{{per.level}}</button>
+                <button *ngFor="let opt of per.languages" (click)="addFilter(opt)">{{opt}}</button>
+                <button *ngFor="let res of per.tools" (click)="addFilter(res)">{{res}}</button>
             </div>
         </div>
     </div>

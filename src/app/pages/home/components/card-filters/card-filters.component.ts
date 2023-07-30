@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,4 +10,20 @@ import { CommonModule } from '@angular/common';
 })
 export class CardFiltersComponent {
 
+  @Input() arrayFilters: string[] = [];
+
+  @Output() newArray = new EventEmitter<string[]>;
+
+  imgClose = 'assets/images/icon-remove.svg';
+
+  favoritoRm(filter: string){
+    let arrayFav: any = [];
+    this.arrayFilters.forEach(e => {
+      if(e !== filter){
+        arrayFav.push(e)
+      }
+    })
+    this.arrayFilters = arrayFav;
+    this.newArray.emit(this.arrayFilters);
+  }
 }

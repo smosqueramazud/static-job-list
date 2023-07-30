@@ -16,6 +16,7 @@ import { CardFiltersComponent } from './components/card-filters/card-filters.com
 export class HomeComponent implements OnInit {
 
   arrayPersons: Person[] | undefined;
+  arrayFilter: string[] = [];
 
   ngOnInit() {
     this.getInfoPersons();
@@ -39,8 +40,21 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  addFilter(){
+  addFilter(element: string){
+    if(this.arrayFilter.length > 0 ){
+      if(this.arrayFilter.find((obj:any) => obj === element) != undefined){
+        return
+      }else{
+        this.arrayFilter.push(element);
+      }
+    }else{
+      this.arrayFilter.push(element);
+    }
 
+  }
+
+  getarrayFilters(array: string[]){
+    this.arrayFilter = array;
   }
   
 }

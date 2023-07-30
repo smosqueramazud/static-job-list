@@ -1,7 +1,6 @@
 <div class="card">
-    <div class="card__item">
-        <p>FrontEnd</p>
-        <button>X</button>
+    <div class="card__item" *ngFor="let fil of arrayFilters">
+        <p>{{fil}}</p>
+        <button (click)="favoritoRm(fil)"><img [src]="imgClose"></button>
     </div>
-
 </div>
