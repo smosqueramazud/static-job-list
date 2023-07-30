@@ -1,0 +1,40 @@
+<div class="content">
+    <div class="content__box-filters">
+        <app-card-filters [arrayFilters]="arrayFilter" (newArray)="getarrayFilters($event)"></app-card-filters>
+    </div>
+
+    <div class="content__box-cards">
+        <div class="content__box-cards__card" *ngFor="let per of arrayPersons">
+
+            <div class="content__box-cards__card__image">
+                <!-- <img src="../../../assets/images/account.svg"> -->
+                <img src='{{ "../../../assets/" + per.logo}}'>
+            </div>
+
+            <div class="content__box-cards__card__info-user">
+                <div class="content__box-cards__card__info-user__first-items">
+                    <p>{{per.company}}</p>
+                    <div class="item" *ngIf="per.new">NEW!</div>
+                    <div class="item-dark" *ngIf="per.featured">FEATURED</div>
+                </div>
+                <h1 class="content__box-cards__card__info-user__title">
+                    {{per.position}}
+                </h1>
+                <div class="content__box-cards__card__info-user__last-items">
+                    <p>{{per.postedAt}}</p>
+                    <div class="circle"></div>
+                    <p>{{per.contract}}</p>
+                    <div class="circle"></div>
+                    <p>{{per.location}}</p>
+                </div>
+            </div>
+
+            <div class="content__box-cards__card__buttons">
+                <button (click)="addFilter(per.role)">{{per.role}}</button>
+                <button (click)="addFilter(per.level)">{{per.level}}</button>
+                <button *ngFor="let opt of per.languages" (click)="addFilter(opt)">{{opt}}</button>
+                <button *ngFor="let res of per.tools" (click)="addFilter(res)">{{res}}</button>
+            </div>
+        </div>
+    </div>
+</div>
