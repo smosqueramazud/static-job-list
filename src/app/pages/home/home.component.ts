@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { DataServicesService } from 'src/app/services/data-services.service';
 import { catchError, throwError } from 'rxjs';
 import { Person } from 'src/app/models/person';
+import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
@@ -33,4 +34,5 @@ export class HomeComponent implements OnInit {
       console.log(this.arrayPersons)
     });
   }
+  
 }

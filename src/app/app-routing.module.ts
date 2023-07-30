@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContentLayoutComponent } from './layouts/content-layout/content-layout.component';
 
 const routes: Routes = [
   {
@@ -8,12 +9,18 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'home',
-    loadComponent: () =>
-    import('./pages/home/home.component').then(
-      c => c.HomeComponent
-    )
-  }
+    path: '',
+    component: ContentLayoutComponent,
+    children:[
+      {
+        path: 'home',
+        loadComponent: () =>
+        import('./pages/home/home.component').then(
+          c => c.HomeComponent
+        )
+      }
+    ]
+  },
 ];
 
 @NgModule({
